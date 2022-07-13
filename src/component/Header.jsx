@@ -4,18 +4,21 @@ import { Menu, Dropdown, Row, Col, Button, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import logo from "../images/logo.svg";
 import logo_w from "../images/logo_white.svg";
+import { useRef } from 'react';
 
 export default function Header(props) {
+    const headerItem = useRef();
     const [scroll,setScroll]=useState("");
+    // const [padding,setPadding]=useState("");
     const [menuVisible, setMenuVisible] = useState(false);
-    // const headerType = props.type ? true : false;
     const headerClassName = classNames({
         clearfix: true,
         headerTranprent: props.transparent,
     });
-    useEffect(()=>{ 
-        window.addEventListener('scroll',()=>{        
-            setScroll(window.scrollY > (window.innerHeight/5) ? "scroll" : ""); 
+    useEffect(()=>{
+        
+        window.addEventListener('scroll',()=>{      
+            setScroll(window.scrollY > headerItem.current.offsetHeight ? "scroll" : "");    
         });
     })
     const phoneClick = () => {
@@ -119,7 +122,7 @@ export default function Header(props) {
     ];
 
     return (
-        <header id="header" className={headerClassName + " " +  scroll}>
+        <header id="header" className={headerClassName + " " +  scroll} ref={headerItem}>
             <div className='header-bg'></div>
             <div className="header-container">
                 <Row justify="space-between">

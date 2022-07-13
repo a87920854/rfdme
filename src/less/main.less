@@ -7,6 +7,7 @@ body{
     font-family: 'Josefin Sans', 'Noto Sans TC', sans-serif;
     font-weight: 300;
     line-height: 1.8;
+    // transition: padding .1s;
 }
 //container
 .container{
@@ -27,7 +28,6 @@ section{
     left: @container-left-right-padding;
     right: @container-left-right-padding;
     height: 1px;
-    width: 100%;
     background-color: @text-color;
   }
 }
@@ -151,6 +151,7 @@ section{
   }
   &.scroll {
     position: fixed;
+    top: 0;
     & li a{
       color: @text-color;
       transition-delay: .3s
@@ -404,7 +405,18 @@ section{
   width: 100%;
   padding: 0;
   overflow: hidden;
-  height: 100vh;  
+  height: 100vh;
+  &::after{
+    content:"";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.1);
+    z-index: -1;
+  }
   & .kv-img{
     position: absolute;
     left: 0;
@@ -429,7 +441,7 @@ section{
 }
 .kv-title-wrap{
   overflow: hidden;
-	top: 50%;
+	top: 53%;
 	margin: 0 auto;
 	transform: translateY(-50%);
   position: relative;
@@ -443,13 +455,14 @@ section{
   text-align: center;
   margin: 0;
   line-height: 1;
+  letter-spacing: -0.2rem;
 }
 .kv-subtitle{
   font-size: 1.6rem;
   text-align: center;
   color: #fff;
   font-weight: 300;
-  letter-spacing: 1rem;
+  letter-spacing: 0.4rem;
   margin-top: 1rem;
 }
 .kv-title-word{

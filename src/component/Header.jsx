@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { Menu, Dropdown, Row, Col, Button, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import logo from "../../images/logo.svg";
-import logo_w from "../../images/logo_white.svg";
+import logo from "../images/logo.svg";
+import logo_w from "../images/logo_white.svg";
 
 export default function Header(props) {
+    const [scroll,setScroll]=useState("");
     const [menuVisible, setMenuVisible] = useState(false);
     // const headerType = props.type ? true : false;
     const headerClassName = classNames({
         clearfix: true,
-        headerTranprent: props.type,
+        headerTranprent: props.transparent,
     });
-    const logotype = props.type ? logo_w : logo;
+    useEffect(()=>{ 
+        window.addEventListener('scroll',()=>{        
+            setScroll(window.scrollY > (window.innerHeight/5) ? "scroll" : ""); 
+        });
+    })
     const phoneClick = () => {
         // const phoneOpen = !this.state.phoneOpen;
         setMenuVisible(!menuVisible);
@@ -105,21 +110,28 @@ export default function Header(props) {
                 </Button>
             </li>
             <li>
+                <div className="header-rightline"></div>
                 <Button href={"/"} type="link">
                     EN
-                </Button>
+                </Button>                
             </li>
         </ul>,
     ];
 
     return (
-        <header id="header" className={headerClassName}>
+        <header id="header" className={headerClassName + " " +  scroll}>
+            <div className='header-bg'></div>
             <div className="header-container">
                 <Row justify="space-between">
                     <Col lg={8} md={6} sm={20} xs={20}>
                         <div className="header-logo">
                             <a href="index.html" id="logo">
-                                <img src={logotype} alt="logo" />                        
+                                <div className='logo-wrap'>
+                                    <img src={logo} alt="logo"  className='logo'/>
+                                </div>
+                                <div className='logo-w-wrap'>
+                                    <img src={logo_w} alt="logo" className='logo-w'/> 
+                                </div>                                                
                             </a>
                         </div>                        
                     </Col>
@@ -139,8 +151,7 @@ export default function Header(props) {
                         </div>
                     </Col>
                 </Row>
-                <div className="header-bottomline"></div>
-                <div className="header-rightline"></div>
+                <div className="header-bottomline"></div>                
             </div>   
         </header>
     );

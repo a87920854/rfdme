@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row, Col} from 'antd';
 import { Divider } from 'antd';
-import logo from "../../images/logo_white.svg";
+import logo from "../images/logo_white.svg";
 
 export default function Footer(props){
     return (

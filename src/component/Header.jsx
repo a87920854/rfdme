@@ -108,7 +108,7 @@ export default function Header(props) {
                 </Button>
             </li>
             <li>
-                <Button href={"/"} type="link">
+                <Button href={"/contact"} type="link">
                     聯絡我們
                 </Button>
             </li>
@@ -128,7 +128,7 @@ export default function Header(props) {
                 <Row justify="space-between">
                     <Col lg={8} md={6} sm={20} xs={20}>
                         <div className="header-logo">
-                            <a href="index.html" id="logo">
+                            <a href="/" id="logo">
                                 <div className='logo-wrap'>
                                     <img src={logo} alt="logo"  className='logo'/>
                                 </div>

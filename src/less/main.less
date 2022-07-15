@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
 html{
     font-size: 1vw;
+    // scroll-behavior: smooth;
 }
 body{
     font-family: 'Josefin Sans', 'Noto Sans TC', sans-serif;
@@ -9,6 +10,67 @@ body{
     line-height: 1.8;
     // transition: padding .1s;
 }
+// page-transition
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 2000ms;
+}
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+// btn
+.ant-btn{
+  height: auto;
+}
+.ant-btn-secondary{
+  background: @secondary-color;
+  color: @text-color;
+  border: 0;
+}
+.ant-btn-secondary:hover,.ant-btn-secondary:focus{
+  background: @text-color;
+  color: #fff;
+}
+// input
+.ant-input{
+  background-color: #F4F7F8;
+  border: 1px solid rgba(0,0,0,0.01);
+}
+
 //container
 .container{
   width: 100%;
@@ -16,8 +78,9 @@ body{
 }
 .section-title{
   font-weight: 500;
+  line-height: 1.2;
   font-size: 4.16rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 section{
   padding: @section-top-bottom-padding 0;
@@ -30,6 +93,30 @@ section{
     height: 1px;
     background-color: @text-color;
   }
+}
+// page-title
+.page-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 42vh;
+  & h1{
+    color: @text-color;
+    font-size: 4.16rem;
+  }
+}
+// breadcrumb
+.breadcrumb{
+  margin-bottom: 2rem;
+  font-weight: 400;
+  & .ant-breadcrumb{
+    font-size: 0.72rem;
+  }
+}
+
+// toTop
+.ant-back-top{
+  right: 50px;
 }
 
 //btn
@@ -77,6 +164,17 @@ section{
     }
     & i::before,i::after{
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 17'%3E%3Cpath fill='none' stroke='%23FABF35' stroke-width='1.5' stroke-linecap='square' d='M1.5 8.5h24m-6-7l7 7m-7 7L26 9'/%3E%3C/svg%3E");
+    }
+  }
+  &.white{
+    & svg{
+      stroke: #fff;
+    }
+    & i::before,i::after{
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 17'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='square' d='M1.5 8.5h24m-6-7l7 7m-7 7L26 9'/%3E%3C/svg%3E");
+    }
+    & p{
+      color: #fff;
     }
   }
   & svg{
@@ -196,9 +294,10 @@ section{
     }
     & li{
         position: relative;
-        padding: 0 .5rem;
+        padding: 0 1.56rem;
         & a{
             font-size: 0.8rem;
+            padding: 0;
             display: inline-block;
             &:hover,:active{
               color: @secondary-color;
@@ -224,7 +323,7 @@ section{
     height: 100%;    
     & img {      
       display: block;
-      width: 11.6rem;
+      width: 10rem;
     }
     & a {
       display: block;
@@ -279,7 +378,7 @@ section{
   height: 0;
   transition: height .3s;
   transition-delay: .3s;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+  // box-shadow: 0 10px 15px rgba(0,0,0,0.05);
 }
 
 @media screen and (max-width: 767px) {
@@ -420,6 +519,7 @@ section{
   & .kv-img{
     position: absolute;
     left: 0;
+    top:0;
     bottom: auto;
     max-width: 100%;
     width: 100%;
@@ -469,7 +569,24 @@ section{
   display: inline-block;
 }
 
-// first-section
+// about-section
+.about-section{
+  min-height: 100vh;
+  overflow: hidden;
+}
+.about-bg{
+  position: absolute;
+  left: 0;
+  top:0;
+  bottom: auto;
+  max-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  aspect-ratio: auto 1900 / 1144;
+  height: calc(60rem + 160px);
+  z-index: -1;
+}
 .showNum-wrap{
   margin-top: 6.25rem;
 }
@@ -487,5 +604,100 @@ section{
   line-height: 1.1;
   & span{
     font-size: 2rem;
+  }
+}
+
+// news-section
+
+// service-section
+.service-section{
+  min-height: 90rem;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10rem;
+  overflow: hidden;
+  & .section-title{
+    color: #fff;
+  }
+  & .ant-row + .ant-row{
+    margin-top: 3rem;
+  }
+}
+.service-bg{
+  position: absolute;
+  left: 0;
+  top:0;
+  bottom: auto;
+  max-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  aspect-ratio: auto 1920 / 1727;
+  z-index: -1;
+}
+.service-item{
+  color: #fff;
+  font-size: 0.9375rem;
+  & h5{
+    font-size: 1.45rem;
+    color: #fff;
+  }
+}
+.service-icon{
+  margin-bottom: 2rem;
+}
+.icon-wrap{
+  border-radius: 50%;
+  background-color: @secondary-color;
+  width: 4.27rem;
+  height: 4.27rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & img{
+    width: 2.08rem;
+  }
+}
+
+// page-contact
+.page-contact{
+  padding: 0 0 4.5rem 0;
+}
+.address{
+  border-top: 3px solid @text-color;
+  padding: 3.5rem 0 0 0;
+}
+.address-item{
+  border-bottom: 1px solid @text-color;
+  padding-bottom: 3.5rem;
+  height: 100%;
+  line-height: 1.4;
+  & h4{
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  & h3{
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  & p{
+    margin-bottom: 0;
+  }
+  & span{
+    font-weight: 500;
+  }
+  & .p-address{
+    margin-bottom: 1rem;
+  }
+}
+.page-contact-form{
+  padding: 0 0 12rem 0;
+  & h3{
+    margin-bottom: 2.08rem;
+    font-size: 1.25rem;
+  }
+  & .ant-row + .ant-row{
+    margin-top: 1.25rem;
   }
 }

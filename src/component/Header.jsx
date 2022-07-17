@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import classNames from 'classnames';
+import {NavLink, Link} from 'react-router-dom';
 import { Menu, Dropdown, Row, Col, Button, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import logo from "../images/logo.svg";
@@ -13,14 +14,13 @@ export default function Header(props) {
     const [menuVisible, setMenuVisible] = useState(false);
     const headerClassName = classNames({
         clearfix: true,
-        headerTranprent: props.transparent,
+        headerTranparent: props.transparent,
     });
-    useEffect(()=>{
-        
+    useLayoutEffect(()=>{
         window.addEventListener('scroll',()=>{      
-            setScroll(window.scrollY > headerItem.current.offsetHeight ? "scroll" : "");    
+            setScroll(window.scrollY > 0 ? "scroll" : "");    
         });
-    })
+    },[])
     const phoneClick = () => {
         // const phoneOpen = !this.state.phoneOpen;
         setMenuVisible(!menuVisible);
@@ -78,10 +78,10 @@ export default function Header(props) {
         // </Button>,
         <ul className="header-menu" key={"menu"}>
             <li>
-                <Button href={"/"} type="link">
+                <NavLink to="/">
                     首頁
-                </Button>
-            </li>
+                </NavLink>
+            </li>            
             <li>
             <Dropdown overlay={menu2}>
                 <a href='/#' onClick={(e) => e.preventDefault()}>
@@ -93,24 +93,24 @@ export default function Header(props) {
             </Dropdown>
             </li>
             <li>
-                <Button href={"/"} type="link">
+                <NavLink to="/">
                     最新消息
-                </Button>
+                </NavLink>
             </li>
             <li>
-                <Button href={"/"} type="link">
+                <NavLink to="/">
                     服務內容
-                </Button>
+                </NavLink>
             </li>
             <li>
-                <Button href={"/"} type="link">
+                <NavLink to="/">
                     電廠實績
-                </Button>
+                </NavLink>
             </li>
             <li>
-                <Button href={"/contact"} type="link">
+                <NavLink to="/contact">
                     聯絡我們
-                </Button>
+                </NavLink>
             </li>
             <li>
                 <div className="header-rightline"></div>
@@ -128,14 +128,14 @@ export default function Header(props) {
                 <Row justify="space-between">
                     <Col lg={8} md={6} sm={20} xs={20}>
                         <div className="header-logo">
-                            <a href="/" id="logo">
+                            <Link to="/" id="logo">
                                 <div className='logo-wrap'>
                                     <img src={logo} alt="logo"  className='logo'/>
                                 </div>
                                 <div className='logo-w-wrap'>
                                     <img src={logo_w} alt="logo" className='logo-w'/> 
                                 </div>                                                
-                            </a>
+                            </Link>
                         </div>                        
                     </Col>
                     <Col lg={16} md={18} sm={0} xs={0}>

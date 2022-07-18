@@ -1,14 +1,13 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import {NavLink, Link} from 'react-router-dom';
 import { Menu, Dropdown, Row, Col, Button, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import logo from "../images/logo.svg";
 import logo_w from "../images/logo_white.svg";
-import { useRef } from 'react';
 
 export default function Header(props) {
-    const headerItem = useRef();
+    const headerItem = useRef();    
     const [scroll,setScroll]=useState("");
     // const [padding,setPadding]=useState("");
     const [menuVisible, setMenuVisible] = useState(false);
@@ -17,10 +16,32 @@ export default function Header(props) {
         headerTranparent: props.transparent,
     });
     useLayoutEffect(()=>{
-        window.addEventListener('scroll',()=>{      
-            setScroll(window.scrollY > 0 ? "scroll" : "");    
-        });
+        window.onload = function(){
+            clearTimeout(tt);            
+        }      
+        const tt = setTimeout(()=>{
+            window.scrollTo(0, 0);
+        },1000); 
     },[])
+    useEffect(()=>{
+        if(props.transparent !== "true"){
+            // const headerHeight = headerItem.current.offsetHeight;
+            // window.addEventListener('scroll',()=>{      
+            //     if(window.scrollY > 0 ){
+            //         if(window.scrollY < headerHeight){
+            //             document.body.style.paddingTop = window.scrollY + "px";
+            //         }else{
+            //             document.body.style.paddingTop = headerHeight + "px";
+            //         }               
+            //     }
+            // });
+        }else{
+            window.addEventListener('scroll',()=>{      
+                setScroll(window.scrollY > 0 ? "scroll" : "");
+            });
+        }
+        
+    })
     const phoneClick = () => {
         // const phoneOpen = !this.state.phoneOpen;
         setMenuVisible(!menuVisible);

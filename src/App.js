@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState, useEffect } from 'react';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import { Routes, Route , useLocation } from "react-router-dom";
@@ -9,20 +9,21 @@ import "./App.less";
 function App() {
   const location = useLocation();
   const [animator, setAnimator] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return ( 
     <>
-      <div className={`preloader ${animator}`}>
-        <div className='preloader-line'><div></div></div>
-        <div className='preloader-line'><div></div></div>
-        <div className='preloader-line'><div></div></div>
-      </div>
+      
       <TransitionGroup className="page-scroll">
-        <CSSTransition appear={true} key={location.key} timeout={2500} classNames="page-transition" 
+        <CSSTransition key={location.key} timeout={1000} classNames="page-transition" 
           onEnter={() => {
             setAnimator("active");
           }} 
           onExited={() => {
-            setAnimator("");
+            setTimeout(()=>{
+              setAnimator("");
+            },1500);            
           }}
         >       
           <Routes location={location}>
@@ -31,6 +32,11 @@ function App() {
           </Routes>      
         </CSSTransition>
       </TransitionGroup>  
+      <div className={`preloader ${animator}`}>
+        <div className='preloader-line'><div></div></div>
+        <div className='preloader-line'><div></div></div>
+        <div className='preloader-line'><div></div></div>
+      </div>
     </>
       
   );

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import { Link } from "react-router-dom";
 import { Row, Col, BackTop } from 'antd';
 import { ScheduleOutlined } from '@ant-design/icons';
 import { gsap } from "gsap";
@@ -12,6 +13,9 @@ import icon_solar from "../images/icon-solar.svg";
 import icon_leaves from "../images/icon-leaves.svg";
 import icon_tree from "../images/icon-tree.svg";
 import icon_plug from "../images/icon-plug.svg";
+import advantage_1 from "../images/advantage_1.jpg";
+import advantage_2 from "../images/advantage_2.jpg";
+import advantage_3 from "../images/advantage_3.jpg";
 
 export default function Home () {
   gsap.registerPlugin(ScrollTrigger);
@@ -63,6 +67,21 @@ export default function Home () {
       }
     );
     gsap.fromTo(
+      element.querySelector(".about-section-title"),
+      { 
+        y: 300,
+      },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: element.querySelector(".about-section-title"),
+          start: "top bottom",
+          toggleClass: {targets: element.querySelector(".btn-more2"), className: "isview"},
+        }
+      }
+    );
+    gsap.fromTo(
       element.querySelector(".service-bg"),
       {        
         y: 0
@@ -72,41 +91,30 @@ export default function Home () {
         scrollTrigger: {
           trigger: element.querySelector(".service-section"),
           start: "top top",
-          end: "bottom center",
           scrub: true,
         }
       }
-    );
+    );   
     gsap.fromTo(
-      element.querySelector(".about-section"),
-      { y: 0 },
+      element.querySelector(".news-section-title"),
+      { y: 300 },
       {
         y: 0,
+        duration: 1,
         scrollTrigger: {
-          trigger: element.querySelector(".about-section"),
-          start: "center bottom",
-          toggleClass: {targets: element.querySelector(".btn-more2"), className: "isview"},
-        }
-      }
-    );
-    gsap.fromTo(
-      element.querySelector(".news-section"),
-      { y: 0 },
-      {
-        y: 0,
-        scrollTrigger: {
-          trigger: element.querySelector(".news-section"),
-          start: "center bottom",
+          trigger: element.querySelector(".news-section-title"),
+          start: "top bottom",
           toggleClass: {targets: element.querySelector(".btn-more3"), className: "isview"},
         }
       }
     );gsap.fromTo(
-      element.querySelector(".service-section"),
-      { y: 0 },
+      element.querySelector(".service-section-title"),
+      { y: 300 },
       {
         y: 0,
+        duration: 1,
         scrollTrigger: {
-          trigger: element.querySelector(".service-section"),
+          trigger: element.querySelector(".service-section-title"),
           start: "bottom bottom",
           toggleClass: {targets: element.querySelector(".btn-more4"), className: "isview"},
         }
@@ -152,8 +160,9 @@ export default function Home () {
       <div className='container'>
         <Row>
           <Col lg={6} md={6} sm={24} xs={24}>
-            <h2 className='section-title'>About Us</h2>
-            
+            <div className='section-title-wrap'>
+              <h2 className='section-title about-section-title'>About Us</h2>
+            </div>
             <a className="btn-more btn-more2" href='/'>
               <div className="btn-more-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
@@ -222,7 +231,9 @@ export default function Home () {
       <div className='container'>        
         <Row>
           <Col lg={6} md={6} sm={24} xs={24}>
-            <h2 className='section-title'>News</h2>            
+            <div className='section-title-wrap'>
+              <h2 className='section-title news-section-title'>News</h2>     
+            </div>  
             <a className="btn-more btn-more3" href='/'>
               <div className="btn-more-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
@@ -234,6 +245,47 @@ export default function Home () {
               <p className='right'>See News</p>
             </a>
           </Col>
+          <Col lg={{span:12,offset:6}} md={{span:12,offset:6}} sm={24} xs={24}>
+            <Link className='news-item' to="/">
+              <div className='news-item-date'>
+                <div className='news-item-date-day'>24</div>
+                <div className='news-item-date-month'>2022.07</div>
+              </div>
+              <div className='news-item-content with-photo'>
+                  <h3>讓綠能更有價值！微電能源</h3>
+                  <p>全球追求淨零碳排如火如荼，台灣也宣布2050淨零轉型政策，積極發展再生能源，成為未來的發電主力，其中風電和光電更是重中之重。2015年創立的微電能源，跨界集結能量，持續致力加值綠能，讓太陽能不只是發電...</p>
+              </div>
+              <div className='news-item-photo'>
+                <img src="https://img.ltn.com.tw/Upload/business/page/800/2020/05/19/3170633_1.jpg" alt="" />
+              </div>
+            </Link>
+            <Link className='news-item' to="/">
+              <div className='news-item-date'>
+                <div className='news-item-date-day'>24</div>
+                <div className='news-item-date-month'>2022.07</div>
+              </div>
+              <div className='news-item-content with-photo'>
+                  <h3>讓綠能更有價值！微電能源用太陽能推動共好價值鏈微電能源用太陽能推動共好價值鏈</h3>
+                  <p>全球追求淨零碳排如火如荼，台灣轉型政策</p>
+              </div>
+              <div className='news-item-photo'>
+                <img src="https://img.ltn.com.tw/Upload/business/page/800/2020/05/19/3170633_1.jpg" alt="" />
+              </div>
+            </Link>
+            <Link className='news-item' to="/">
+              <div className='news-item-date'>
+                <div className='news-item-date-day'>24</div>
+                <div className='news-item-date-month'>2022.07</div>
+              </div>
+              <div className='news-item-content with-photo'>
+                  <h3>讓綠能更有價值！微電能源用太陽能推動共好價值鏈微電能源用太陽能推動共好價值鏈</h3>
+                  <p>全球追求淨零碳排如火如荼，台灣也宣布2050淨零轉型政策，積極發展再生能源，成為未來的發電主力，其中風電和光電更是重中之重。2015年創立的微電能源，跨界集結能量，持續致力加值綠能，讓太陽能不只是發電...</p>
+              </div>
+              <div className='news-item-photo'>
+                <img src="https://img.ltn.com.tw/Upload/business/page/800/2020/05/19/3170633_1.jpg" alt="" />
+              </div>
+            </Link>
+          </Col>
         </Row>
       </div>
     </section>
@@ -241,7 +293,10 @@ export default function Home () {
       <div className='container'>
         <Row align="bottom">
           <Col lg={6} md={6} sm={24} xs={24}>
-            <h2 className='section-title'>Our<br/>Service</h2>            
+            <div className='section-title-wrap'>
+              <h2 className='section-title service-section-title'>Our<br/>Service</h2> 
+            </div>
+                       
             <a className="btn-more white btn-more4" href='/'>
               <div className="btn-more-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
@@ -298,6 +353,58 @@ export default function Home () {
         </Row>
       </div>
       <img className="service-bg" src={servicebg} alt="servicebg"/>
+    </section>
+    <section className='advantage-section'>
+      <div className='container'>        
+        <Row>
+          <Col lg={24} md={24} sm={24} xs={24}>
+            <div className='section-title-wrap'>
+              <h2 className='section-title advantage-section-title'>Advantage</h2>     
+            </div>            
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={24} md={24} sm={24} xs={24}>
+              <Row gutter={32}>
+                <Col lg={8} md={8} sm={24} xs={24}>
+                  <div className='box'>
+                      <div className='box-content'>
+                        <h3>跨領域專業團隊</h3>
+                        <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發。</p>
+                      </div>
+                      <div className='box-photo'>
+                        <img src={advantage_1} alt="跨領域專業團隊" />
+                      </div>
+                  </div>
+                </Col>
+                <Col lg={8} md={8} sm={24} xs={24}>
+                  <div className='box'>
+                      <div className='box-photo'>
+                        <img src={advantage_2} alt="深厚專業知識和領航技術" />
+                      </div>
+                      <div className='box-content'>
+                        <h3>深厚專業知識和領航技術</h3>
+                        <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發。</p>
+                      </div>
+                      
+                  </div>
+                </Col>
+                <Col lg={8} md={8} sm={24} xs={24}>
+                  <div className='box'>
+                      <div className='box-content'>
+                        <h3>洞見趨勢的技術與服務</h3>
+                        <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發。</p>
+                      </div>
+                      <div className='box-photo'>
+                        <img src={advantage_3} alt="洞見趨勢的技術與服務" />
+                      </div>
+                  </div>
+                </Col>
+              </Row>            
+          </Col>
+        </Row>
+
+      </div>
     </section>
     <BackTop />
     <Footer/>    

@@ -11,7 +11,7 @@ export default function Contact() {
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
-    };
+    };   
     const company = [
         {
             id:1,

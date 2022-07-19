@@ -1,13 +1,14 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import {NavLink, Link} from 'react-router-dom';
-import { Menu, Dropdown, Row, Col, Button, Space } from 'antd';
+import { Menu, Dropdown, Row, Col, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import logo from "../images/logo.svg";
 import logo_w from "../images/logo_white.svg";
 
 export default function Header(props) {
     const headerItem = useRef();    
+    const [dropclass,setDropclass]=useState("");
     const [scroll,setScroll]=useState("");
     // const [padding,setPadding]=useState("");
     const [menuVisible, setMenuVisible] = useState(false);
@@ -15,6 +16,9 @@ export default function Header(props) {
         clearfix: true,
         headerTranparent: props.transparent,
     });
+    const dropdownfunc = () => {
+        setDropclass("open");
+    }
     useLayoutEffect(()=>{
         window.onload = function(){
             clearTimeout(tt);            
@@ -103,15 +107,17 @@ export default function Header(props) {
                     首頁
                 </NavLink>
             </li>            
-            <li>
-            <Dropdown overlay={menu2}>
-                <a href='/#' onClick={(e) => e.preventDefault()}>
-                <Space>
-                    關於我們
-                    <DownOutlined />
-                </Space>
+            <li>            
+                <a className='header-dropbtn' href='/#' onClick={(e) => dropdownfunc }>
+                    關於我們                                    
                 </a>
-            </Dropdown>
+                <ul className={`header-dropmenu ${dropclass}`}>
+                    <li><Link to="/">公司介紹</Link></li>
+                    <li><Link to="/">願景宗旨</Link></li>
+                    <li><Link to="/">營運團隊</Link></li>
+                    <li><Link to="/">Spirits/Motivation</Link></li>
+                    <li><Link to="/">微電大事紀</Link></li>
+                </ul>         
             </li>
             <li>
                 <NavLink to="/">
@@ -159,10 +165,7 @@ export default function Header(props) {
                             </Link>
                         </div>                        
                     </Col>
-                    <Col lg={16} md={18} sm={0} xs={0}>
-                        { menu }
-                    </Col>                    
-                    <Col lg={0} md={0} sm={4} xs={4}>
+                    <Col lg={16} md={18} sm={4} xs={4}>
                         <div
                             className={menuVisible ?'header-mobile-menu open':'header-mobile-menu'}
                             onClick={() => {
@@ -171,9 +174,9 @@ export default function Header(props) {
                         >
                             <em />
                             <em />
-                            <em />
                         </div>
-                    </Col>
+                        { menu }
+                    </Col>                    
                 </Row>
                 <div className="header-bottomline"></div>                
             </div>   

@@ -16,11 +16,11 @@
     "rc-scroll-anim": "^2.7.6",
     "rc-texty": "^0.2.0",
     "react": "^18.2.0",
-    "react-animated-router": "^1.2.4",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-transition-group": "^4.4.2",
+    "smooth-scrollbar": "^8.7.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

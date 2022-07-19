@@ -9,9 +9,6 @@ import "./App.less";
 function App() {
   const location = useLocation();
   const [animator, setAnimator] = useState("");
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return ( 
     <>
       

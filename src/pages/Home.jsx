@@ -80,6 +80,32 @@ export default function Home () {
           toggleClass: {targets: element.querySelector(".btn-more2"), className: "isview"},
         }
       }
+    );       
+    gsap.fromTo(
+      element.querySelector(".news-section-title"),
+      { y: 300 },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: element.querySelector(".news-section-title"),
+          start: "top bottom",
+          toggleClass: {targets: element.querySelector(".btn-more3"), className: "isview"},
+        }
+      }
+    );
+    gsap.fromTo(
+      element.querySelector(".service-section-title"),
+      { y: 300 },
+      {
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: element.querySelector(".service-section-title"),
+          start: "bottom bottom",
+          toggleClass: {targets: element.querySelector(".btn-more4"), className: "isview"},
+        }
+      }
     );
     gsap.fromTo(
       element.querySelector(".service-bg"),
@@ -94,29 +120,17 @@ export default function Home () {
           scrub: true,
         }
       }
-    );   
+    );
     gsap.fromTo(
-      element.querySelector(".news-section-title"),
+      element.querySelector(".advantage-section-title"),
       { y: 300 },
       {
         y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: element.querySelector(".news-section-title"),
+          trigger: element.querySelector(".advantage-section-title"),
           start: "top bottom",
-          toggleClass: {targets: element.querySelector(".btn-more3"), className: "isview"},
-        }
-      }
-    );gsap.fromTo(
-      element.querySelector(".service-section-title"),
-      { y: 300 },
-      {
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: element.querySelector(".service-section-title"),
-          start: "bottom bottom",
-          toggleClass: {targets: element.querySelector(".btn-more4"), className: "isview"},
+         
         }
       }
     );
@@ -181,7 +195,7 @@ export default function Home () {
             </div>
             <div className='showNum-wrap'>
               <Row>
-                <Col lg={12} md={12} sm={12} xs={12}>                  
+                <Col lg={12} md={12} sm={12} xs={24}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>
@@ -190,7 +204,7 @@ export default function Home () {
                       <div className='showNum-p'>BUILT EPC PROJECTS</div>
                     </div>                  
                 </Col>
-                <Col lg={12} md={12} sm={12} xs={12}>                  
+                <Col lg={12} md={12} sm={12} xs={24}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>
@@ -201,7 +215,7 @@ export default function Home () {
                 </Col>
               </Row>
               <Row>
-                <Col lg={12} md={12} sm={12} xs={12}>                  
+                <Col lg={12} md={12} sm={12} xs={24}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>
@@ -210,7 +224,7 @@ export default function Home () {
                       <div className='showNum-p'>BUILT EPC PROJECTS</div>
                     </div>                  
                 </Col>
-                <Col lg={12} md={12} sm={12} xs={12}>                  
+                <Col lg={12} md={12} sm={12} xs={24}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>
@@ -310,7 +324,7 @@ export default function Home () {
           </Col>
           <Col lg={{span:12,offset:6}} md={{span:12,offset:6}} sm={24} xs={24}>
             <Row gutter={[16, 16]}>
-              <Col lg={12} md={12} sm={12} xs={12}>
+              <Col lg={12} md={12} sm={12} xs={24}>
                 <div className='service-item'>
                   <div className="service-icon">
                     <div className='icon-wrap'><img src={icon_solar} alt={icon_solar} /></div>
@@ -319,7 +333,7 @@ export default function Home () {
                   <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發、能源數據的蒐集、分析、整合、應用為核心能力，發展太陽能電廠整合規劃建置與營運。</p>
                 </div>
               </Col>
-              <Col lg={12} md={12} sm={12} xs={12}>
+              <Col lg={12} md={12} sm={12} xs={24}>
                 <div className='service-item'>
                   <div className="service-icon">
                     <div className='icon-wrap'><img src={icon_leaves} alt={icon_leaves} /></div>
@@ -330,7 +344,7 @@ export default function Home () {
               </Col>
             </Row>
             <Row gutter={[16, 16]}>
-              <Col lg={12} md={12} sm={12} xs={12}>
+              <Col lg={12} md={12} sm={12} xs={24}>
                 <div className='service-item'>
                   <div className="service-icon">
                     <div className='icon-wrap'><img src={icon_plug} alt={icon_plug} /></div>
@@ -339,7 +353,7 @@ export default function Home () {
                   <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發、能源數據的蒐集、分析、整合、應用為核心能力，發展太陽能電廠整合規劃建置與營運。</p>
                 </div>
               </Col>
-              <Col lg={12} md={12} sm={12} xs={12}>
+              <Col lg={12} md={12} sm={12} xs={24}>
                 <div className='service-item'>
                   <div className="service-icon">
                     <div className='icon-wrap'><img src={icon_tree} alt={icon_tree} /></div>
@@ -373,14 +387,14 @@ export default function Home () {
                         <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發。</p>
                       </div>
                       <div className='box-photo'>
-                        <img src={advantage_1} alt="跨領域專業團隊" />
+                        <img src={advantage_1} alt="跨領域專業團隊" className='advantage-1'/>
                       </div>
                   </div>
                 </Col>
                 <Col lg={8} md={8} sm={24} xs={24}>
                   <div className='box'>
                       <div className='box-photo'>
-                        <img src={advantage_2} alt="深厚專業知識和領航技術" />
+                        <img src={advantage_2} alt="深厚專業知識和領航技術" className='advantage-2'/>
                       </div>
                       <div className='box-content'>
                         <h3>深厚專業知識和領航技術</h3>
@@ -396,7 +410,7 @@ export default function Home () {
                         <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發。</p>
                       </div>
                       <div className='box-photo'>
-                        <img src={advantage_3} alt="洞見趨勢的技術與服務" />
+                        <img src={advantage_3} alt="洞見趨勢的技術與服務" className='advantage-3'/>
                       </div>
                   </div>
                 </Col>

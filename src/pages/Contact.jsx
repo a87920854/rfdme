@@ -50,7 +50,7 @@ export default function Contact() {
         <div>
             <Header/>
             <div className='page-title'>
-                <h1>CONTACT US</h1>
+                <h1>Contact Us</h1>
             </div>
             <div className='breadcrumb'>
                 <div className='container'>

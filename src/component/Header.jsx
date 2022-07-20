@@ -1,8 +1,8 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import {NavLink, Link} from 'react-router-dom';
-import { Menu, Dropdown, Row, Col, Button } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import Dropdown from './Dropdown';
+import { Row, Col, Button } from 'antd';
 import logo from "../images/logo.svg";
 import logo_w from "../images/logo_white.svg";
 
@@ -16,8 +16,67 @@ export default function Header(props) {
         clearfix: true,
         headerTranparent: props.transparent,
     });
-    const dropdownfunc = () => {
-        setDropclass("open");
+    const menuDropItem_about = [
+        {
+            id:"公司介紹",
+            title:"公司介紹",
+            url:"/about"
+        },
+        {
+            id:"願景宗旨",
+            title:"願景宗旨",
+            url:"/"
+        },
+        {
+            id:"營運團隊",
+            title:"營運團隊",
+            url:"/"
+        },
+        {
+            id:"Spirits/Motivation",
+            title:"Spirits/Motivation",
+            url:"/"
+        },
+        {
+            id:"微電大事紀",
+            title:"微電大事紀",
+            url:"/"
+        },
+    ]
+    const menuDropItem_service = [
+        {
+            id:"太陽能電廠整合方案",
+            title:"太陽能電廠整合方案",
+            url:"/"
+        },
+        {
+            id:"綠能應用解決方案",
+            title:"綠能應用解決方案",
+            url:"/"
+        },
+        {
+            id:"瓦力電能：綠能採購",
+            title:"瓦力電能：綠能採購",
+            url:"/"
+        },
+        {
+            id:"瓦力電能：綠電銷售代理",
+            title:"瓦力電能：綠電銷售代理",
+            url:"/"
+        },
+        {
+            id:"Light Donate",
+            title:"Light Donate",
+            url:"/"
+        },
+        {
+            id:"電廠銷售服務",
+            title:"電廠銷售服務",
+            url:"/"
+        },
+    ]
+    const dropItemSet = (isview) => {
+        setDropclass(isview);
     }
     useLayoutEffect(()=>{
         window.onload = function(){
@@ -28,18 +87,7 @@ export default function Header(props) {
         },1000); 
     },[])
     useEffect(()=>{
-        if(props.transparent !== "true"){
-            // const headerHeight = headerItem.current.offsetHeight;
-            // window.addEventListener('scroll',()=>{      
-            //     if(window.scrollY > 0 ){
-            //         if(window.scrollY < headerHeight){
-            //             document.body.style.paddingTop = window.scrollY + "px";
-            //         }else{
-            //             document.body.style.paddingTop = headerHeight + "px";
-            //         }               
-            //     }
-            // });
-        }else{
+        if(props.transparent === "true"){
             window.addEventListener('scroll',()=>{      
                 setScroll(window.scrollY > 0 ? "scroll" : "");
             });
@@ -50,57 +98,8 @@ export default function Header(props) {
         // const phoneOpen = !this.state.phoneOpen;
         setMenuVisible(!menuVisible);
     };
-    const menu2 = (
-        <Menu
-          items={[
-            {
-                key: '1',
-                label: (
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                    關於我們
-                    </a>
-                ),
-            },
-            {
-                key: '2',
-                label: (
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                    公司願景
-                  </a>
-                ),
-            },
-            {
-                key: '3',
-                label: (
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                    團隊
-                    </a>
-                ),
-            },
-            {
-                key: '4',
-                label: (
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                    動機
-                    </a>
-                ),
-            },
-            {
-                key: '5',
-                label: (
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                    公司歷史
-                    </a>
-                ),
-            },
-          ]}
-        />
-      );
 
     const menu = [
-        // <Button className="header-lang-button" ghost size="small" key="lang">
-        //     English
-        // </Button>,
         <ul className="header-menu" key={"menu"}>
             <li>
                 <NavLink to="/">
@@ -108,16 +107,7 @@ export default function Header(props) {
                 </NavLink>
             </li>            
             <li>            
-                <a className='header-dropbtn' href='/#' onClick={(e) => dropdownfunc }>
-                    關於我們                                    
-                </a>
-                <ul className={`header-dropmenu ${dropclass}`}>
-                    <li><Link to="/">公司介紹</Link></li>
-                    <li><Link to="/">願景宗旨</Link></li>
-                    <li><Link to="/">營運團隊</Link></li>
-                    <li><Link to="/">Spirits/Motivation</Link></li>
-                    <li><Link to="/">微電大事紀</Link></li>
-                </ul>         
+                <Dropdown view={dropItemSet} content={menuDropItem_about} title={"關於我們"}/>
             </li>
             <li>
                 <NavLink to="/">
@@ -125,9 +115,7 @@ export default function Header(props) {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/">
-                    服務內容
-                </NavLink>
+            <Dropdown view={dropItemSet} content={menuDropItem_service} title={"服務內容"}/>
             </li>
             <li>
                 <NavLink to="/">
@@ -145,42 +133,45 @@ export default function Header(props) {
                     EN
                 </Button>                
             </li>
-        </ul>,
+        </ul>
     ];
 
     return (
-        <header id="header" className={headerClassName + " " +  scroll} ref={headerItem}>
-            <div className='header-bg'></div>
-            <div className="header-container">
-                <Row justify="space-between">
-                    <Col lg={8} md={6} sm={20} xs={20}>
-                        <div className="header-logo">
-                            <Link to="/" id="logo">
-                                <div className='logo-wrap'>
-                                    <img src={logo} alt="logo"  className='logo'/>
-                                </div>
-                                <div className='logo-w-wrap'>
-                                    <img src={logo_w} alt="logo" className='logo-w'/> 
-                                </div>                                                
-                            </Link>
-                        </div>                        
-                    </Col>
-                    <Col lg={16} md={18} sm={4} xs={4}>
-                        <div
-                            className={menuVisible ?'header-mobile-menu open':'header-mobile-menu'}
-                            onClick={() => {
-                                phoneClick();
-                            }}
-                        >
-                            <em />
-                            <em />
-                        </div>
-                        { menu }
-                    </Col>                    
-                </Row>
-                <div className="header-bottomline"></div>                
-            </div>   
-        </header>
+        <>
+            <header id="header" className={headerClassName + " " +  scroll + " " + dropclass} ref={headerItem}>
+                <div className='header-bg'></div>
+                <div className="header-container">
+                    <Row justify="space-between">
+                        <Col lg={8} md={6} sm={20} xs={20}>
+                            <div className="header-logo">
+                                <Link to="/" id="logo">
+                                    <div className='logo-wrap'>
+                                        <img src={logo} alt="logo"  className='logo'/>
+                                    </div>
+                                    <div className='logo-w-wrap'>
+                                        <img src={logo_w} alt="logo" className='logo-w'/> 
+                                    </div>                                                
+                                </Link>
+                            </div>                        
+                        </Col>
+                        <Col lg={16} md={18} sm={4} xs={4}>
+                            <div
+                                className={menuVisible ?'header-mobile-menu open':'header-mobile-menu'}
+                                onClick={() => {
+                                    phoneClick();
+                                }}
+                            >
+                                <em />
+                                <em />
+                            </div>
+                            { menu }
+                        </Col>                    
+                    </Row>
+                    <div className="header-menuline"></div>   
+                    <div className="header-bottomline"></div>                
+                </div>   
+            </header>
+        </>
     );
 
 }

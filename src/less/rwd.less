@@ -4,10 +4,39 @@
   html {
     font-size: 2vw;
   }
+  .header-container{
+    padding:0rem 2rem 0rem 2rem;
+  }
+  .header-bottomline{
+    margin: 0 2rem;
+  }
+  .container{
+    padding: 0 5rem;
+  }
+  section{
+    padding: 8rem 0;
+  }
+  section .section-top-line{
+    left: 5rem;
+    right: 5rem;
+  }
+  .section-title{
+    margin-bottom: 2rem;
+  }
+  .btn-more{
+    margin-bottom: 4.5rem;
+  }
+  .btn-more svg{
+    width: 3rem;
+    height: 3rem;
+  }
+  .btn-more .right{
+    padding-left: 1rem;
+  }
   .header-menu{
     overflow: hidden;
     display: block;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     height: 100vh;
@@ -15,13 +44,12 @@
     transform: translateX(200%);
     background-color: @primary-color;
     transition: all .5s;
-    margin-top: -1.4rem;
-    margin-right: -3rem;
     z-index: 99;
-    padding: 6rem 3rem 0 2rem;
-    & li{
+    padding: 6rem 3rem 0 3rem;
+    & > li{
         padding: 0;
         margin-bottom: 0.5rem;
+        height: auto;
         &::after{
             content: '';
             display: block;
@@ -55,7 +83,7 @@
     height: 20px;
     cursor: pointer;
     position: absolute;
-    top: 1rem;
+    top: 2.3rem;
     right: 0rem;
     z-index: 100;    
     em {
@@ -93,9 +121,203 @@
         }
     }
   }
+  .header-dropbtn::after{
+    display: none;
+  }
+  .header-dropmenu-bg{
+    display: none;
+  }
+  #header .header-dropmenu a{
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1rem;
+  }
+  .header-dropmenu{
+    display: none;
+    background-color: transparent;
+    text-align: right;
+    position: relative;
+    left: auto;
+    top: auto;
+    &.open{
+      display: block;
+      padding: 0 0 2rem 0;
+    }
+  }
+  .page-title{
+    padding: 6rem 0 5rem 0;
+    min-height: 20rem;
+    & h1{
+      font-size: 3rem;
+    }
+  }
+  //index
+  .kv-title{
+    padding: 0 2rem;
+    & br{
+      display: block;
+    }
+  }
+  .kv .btn-more{
+    margin-bottom: 0;
+  }
+  .icon-wrap{
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .box{
+    display: flex;
+    flex-direction: column;
+  }
+  .box-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .advantage-section .ant-col + .ant-col{
+    margin-top: 5rem;
+  }
+  .advantage-section .ant-col:nth-child(2) .box > .box-content{
+    order: 0;
+  }
+  .advantage-section .ant-col:nth-child(2) .box > .box-photo{
+    order: 1;
+  }
+  .news-section{
+    padding: 8rem 0 0 0;
+  }
+  .page-contact .ant-col{
+    margin-bottom: 2rem;
+  }
 }
 @media (max-width: 575px) {
   html {
     font-size: 4vw;
+  }
+  .header-container{
+    padding:0rem 1.2rem;
+  }
+  .header-bottomline{
+    margin: 0 1.2rem;
+  }
+  .container{
+    padding: 0 1.6rem;
+  }
+  section{
+    padding: 4rem 0;
+  }
+  section .section-top-line{
+    left: 1.2rem;
+    right: 1.2rem;
+  }
+  .section-title{
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .page-title h1{
+    font-size: 2.5rem;
+  }
+  .btn-more{
+    margin-bottom: 3rem;
+  }
+  .btn-more svg{
+    width: 2rem;
+    height: 2rem;
+  }
+  .btn-more i{
+    width: 1rem;
+    margin: -0.76875rem 0 0 -0.5125rem;
+  }
+  .btn-more .right{
+    padding-left: 1rem;
+  }
+  #header{
+    height: 4rem;
+  }
+  .header-logo img{
+    width: 6.5rem;
+  }
+  .header-menu{
+    padding: 6rem 1.2rem 0 1.2rem;
+  }
+  .header-mobile-menu{
+    top: 1.8rem;
+  }
+  .kv-title{
+    font-size: 3.7rem;
+  }
+  .kv-title-word{
+    &:nth-child(5),&:nth-child(6),&:nth-child(7){
+      padding-right: 1rem;
+    }
+  }
+  .kv-subtitle{
+    font-size: 1rem;
+  }  
+  .kv .btn-more svg{
+    width: 3rem;
+    height: 3rem;
+  }
+  .showNum-wrap{
+    margin-top: 3rem;
+  }
+  .showNum-icon{
+    font-size: 2.2rem;
+  }
+  .showNum-title{
+    font-size: 1rem;
+  }
+  .showNum-title span{
+    font-size: 1.5rem;
+  }
+  .showNum{
+    margin-bottom: 1.5rem;
+  }
+  .news-section{
+    padding: 4rem 0 0 0;
+  }
+  .news-item-photo{
+    display: none;
+  }
+  .news-item-date{
+    width: 25%;
+  }
+  .news-item-content.with-photo{
+    width: 75%;
+  }
+  .box-content{
+    padding: 2.4rem 1.6rem;
+    min-height: 15rem;
+  }
+  .box-content h3{
+    padding: 0;
+    font-size: 1.4rem;
+  }
+  .box-content p{
+    padding: 0;
+  }
+  .service-section .section-title{
+    color: @text-color;
+  }
+  .service-section .btn-more.white svg{
+    stroke: @text-color;
+  }
+  .service-section .btn-more.white i::before, .service-section .btn-more.white i::after{
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 17'%3E%3Cpath fill='none' stroke='%230d0d0d' stroke-width='1.5' stroke-linecap='square' d='M1.5 8.5h24m-6-7l7 7m-7 7L26 9'/%3E%3C/svg%3E");
+  }
+  .service-section .btn-more.white p{
+    color: @text-color;
+  }
+  .ant-back-top{
+    right: 20px;
+    bottom: 20px;
+  }
+  .footer h6{
+    font-size: 1.2rem;
+  }
+  .footer .footer-link{
+    font-size: 1rem;
+  }
+  .footer-copyright{
+    font-size: 0.73rem;
   }
 }

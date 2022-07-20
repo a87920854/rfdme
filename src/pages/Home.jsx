@@ -146,9 +146,10 @@ export default function Home () {
           <span className='kv-title-word'>O</span>
           <span className='kv-title-word'>L</span>
           <span className='kv-title-word'>A</span>
-          <span className='kv-title-word' style={{paddingRight:'2rem'}}>R</span>          
-          <span className='kv-title-word' style={{paddingRight:'2rem'}}>AS</span>          
-          <span className='kv-title-word' style={{paddingRight:'2rem'}}>A</span>          
+          <span className='kv-title-word'>R</span>          
+          <span className='kv-title-word'>AS</span>          
+          <span className='kv-title-word'>A</span>
+          <br/>       
           <span className='kv-title-word'>S</span>
           <span className='kv-title-word'>E</span>
           <span className='kv-title-word'>R</span>
@@ -195,7 +196,7 @@ export default function Home () {
             </div>
             <div className='showNum-wrap'>
               <Row>
-                <Col lg={12} md={12} sm={12} xs={24}>                  
+                <Col lg={12} md={12} sm={12} xs={12}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>
@@ -204,7 +205,7 @@ export default function Home () {
                       <div className='showNum-p'>BUILT EPC PROJECTS</div>
                     </div>                  
                 </Col>
-                <Col lg={12} md={12} sm={12} xs={24}>                  
+                <Col lg={12} md={12} sm={12} xs={12}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>
@@ -215,7 +216,7 @@ export default function Home () {
                 </Col>
               </Row>
               <Row>
-                <Col lg={12} md={12} sm={12} xs={24}>                  
+                <Col lg={12} md={12} sm={12} xs={12}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>
@@ -224,7 +225,7 @@ export default function Home () {
                       <div className='showNum-p'>BUILT EPC PROJECTS</div>
                     </div>                  
                 </Col>
-                <Col lg={12} md={12} sm={12} xs={24}>                  
+                <Col lg={12} md={12} sm={12} xs={12}>                  
                     <div className='showNum'>
                       <div className='showNum-icon'>
                         <ScheduleOutlined/>

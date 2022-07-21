@@ -20,8 +20,12 @@ import advantage_3 from "../images/advantage_3.jpg";
 export default function Home () {
   gsap.registerPlugin(ScrollTrigger);
   const scrollref = useRef(null);
-  const [btnClass, setBtnClass] = useState("");
-  useEffect(()=>{    
+  const [btnClass, setBtnClass] = useState(""); 
+  const toLink = (url) =>{
+    let anchorElement = document.getElementById(url);
+    anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'});
+  }
+  useEffect(()=>{        
     setBtnClass("isview");
     const element = scrollref.current;
     gsap.from(element.querySelectorAll(".kv-title-word"),
@@ -160,7 +164,7 @@ export default function Home () {
         </h1>
         <h2 className="kv-subtitle">太陽能即服務</h2>
       </div>
-      <a className={`btn-more secondary ${btnClass}`} href='/'>
+      <a className={`btn-more secondary ${btnClass}`} href='/#' onClick={(e)=> {e.preventDefault();toLink("about");}}>
         <div className='btn-more-wrap'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
             <circle r="38" cx="40" cy="40" strokeWidth="2" fill="none"></circle>
@@ -171,14 +175,14 @@ export default function Home () {
         <p className='bottom'>Scroll down</p>
       </a>
     </section>   
-    <section className='about-section'>
+    <section className='about-section' id="about">
       <div className='container'>
         <Row>
           <Col lg={6} md={6} sm={24} xs={24}>
             <div className='section-title-wrap'>
               <h2 className='section-title about-section-title'>About Us</h2>
             </div>
-            <a className="btn-more btn-more2" href='/'>
+            <Link className="btn-more btn-more2" to='/about'>
               <div className="btn-more-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                   <circle r="38" cx="40" cy="40" stroke="#0d0d0d" strokeWidth="2" fill="none"></circle>
@@ -187,7 +191,7 @@ export default function Home () {
                 <i></i>
               </div>        
               <p className='right'>See About Us</p>
-            </a>
+            </Link>
           </Col>
           <Col lg={{span:12,offset:6}} md={{span:12,offset:6}} sm={24} xs={24}>
             <div className='first-section-p'>
@@ -249,7 +253,7 @@ export default function Home () {
             <div className='section-title-wrap'>
               <h2 className='section-title news-section-title'>News</h2>     
             </div>  
-            <a className="btn-more btn-more3" href='/'>
+            <Link className="btn-more btn-more3" to='/news'>
               <div className="btn-more-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                   <circle r="38" cx="40" cy="40" strokeWidth="2" fill="none"></circle>
@@ -258,7 +262,7 @@ export default function Home () {
                 <i></i>
               </div>        
               <p className='right'>See News</p>
-            </a>
+            </Link>
           </Col>
           <Col lg={{span:12,offset:6}} md={{span:12,offset:6}} sm={24} xs={24}>
             <Link className='news-item' to="/">
@@ -312,7 +316,7 @@ export default function Home () {
               <h2 className='section-title service-section-title'>Our<br/>Service</h2> 
             </div>
                        
-            <a className="btn-more white btn-more4" href='/'>
+            <Link className="btn-more white btn-more4" to='/service'>
               <div className="btn-more-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                   <circle r="38" cx="40" cy="40" strokeWidth="2" fill="none"></circle>
@@ -321,10 +325,10 @@ export default function Home () {
                 <i></i>
               </div>        
               <p className='right'>See Our Service</p>
-            </a>
+            </Link>
           </Col>
           <Col lg={{span:12,offset:6}} md={{span:12,offset:6}} sm={24} xs={24}>
-            <Row gutter={[16, 16]}>
+            <Row gutter={[24, 24]}>
               <Col lg={12} md={12} sm={12} xs={24}>
                 <div className='service-item'>
                   <div className="service-icon">

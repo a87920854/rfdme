@@ -132,8 +132,18 @@ body::-webkit-scrollbar-track-piece{
   border: 0;
 }
 .ant-btn-secondary:hover,.ant-btn-secondary:focus{
-  background: @text-color;
+  background: @primary-color-dark;
   color: #fff;
+}
+//anchor
+.ant-anchor{
+  font-size: 0.9375rem;
+}
+.ant-anchor-ink{
+  display: none;
+}
+.ant-anchor-link{
+  padding: 0;
 }
 // input
 .ant-input{
@@ -145,6 +155,12 @@ body::-webkit-scrollbar-track-piece{
   &:focus{
     border: 1px solid rgba(0,0,0,0.2);
   }
+}
+.ant-form-item-label > label{
+  font-size: 1rem;
+}
+.ant-input::placeholder{
+  font-size: 1rem;
 }
 
 //container
@@ -228,8 +244,9 @@ section{
 // page-title
 .page-title{
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
   padding-bottom: 6.5rem;
   padding-top:8rem;
   min-height: 30rem;
@@ -241,9 +258,58 @@ section{
     text-align: center;
   }
 }
+.page-title-link{
+  display: block;
+  margin: 1.5rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  & li{
+    display: inline-block;
+    padding: 0 0.7rem;
+  }
+}
+.page-kv{ 
+  position: relative;
+  
+  & .page-kv-img-wrap{
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-top: 46.875%;
+  }
+  & .page-kv-img{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  & .btn-more{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    & i{
+      margin: -0.56875rem 0 0 -0.8125rem;
+    }
+    & .btn-more-wrap{
+      background-color: @secondary-color;
+      border-radius: 100%;
+      width: 4.125rem;
+      height: 4.125rem;
+      & svg{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
 // breadcrumb
 .breadcrumb{
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   font-weight: 400;
   & .ant-breadcrumb{
     font-size: 0.72rem;
@@ -998,9 +1064,124 @@ section{
     margin-top: 1.25rem;
   }
 }
-.ant-form-item-label > label{
-  font-size: 1rem;
+
+// about page
+.page-about-section{
+  color: @text-color-light;
+  font-size:  1rem;
+  & h2{
+    color: @text-color;
+    font-size: 2.92rem;
+    line-height: 1.2;
+    letter-spacing: 0.02rem;
+    margin-bottom: 3.6rem;
+  }
 }
-.ant-input::placeholder{
-  font-size: 1rem;
+.company-section-txt{
+  text-align: center;
+  font-size:  1.25rem;
+  line-height: 1.8;
+}
+.view-img-wrap{
+  max-width: 75%;
+  overflow: hidden;
+  height: 0;
+  padding-top: 60%;
+  position: relative;
+  margin-left: auto;
+  & img{
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+.team-section{
+  & h2{
+    text-align: center;
+  }
+  & .ant-row + .ant-row{
+    margin-top: 3rem;
+  }
+}
+.team-box{
+  text-align: center;
+}
+.team-box-photo{
+  width: 100%;
+  margin-bottom: 2.4rem;
+  & img{
+    width: 100%;
+  }
+}
+.team-box-txt-title{
+  font-size: 0.833rem;
+  color: @text-color;
+  margin-bottom: 0.416rem;
+  line-height: 1;
+}
+.team-box-txt-name{
+  font-size: 1.666rem;
+  font-weight: 500;
+  color: @text-color;
+  margin-bottom: 1.66rem;
+  letter-spacing: 0.2rem;
+}
+.team-box-txt-description{
+  font-size: 0.833rem;
+}
+.spirits-section{
+  position: relative;
+  padding-bottom: 0;
+  & h2{
+    text-align: center;
+  }
+  & p{
+    text-align: center;
+  }
+  &::after{
+    content: '';
+    height: 30%;
+    width: 100%;
+    background-image: linear-gradient(0deg,#004F68,transparent);
+    position: absolute;
+    bottom: 0;
+    z-index: 9;
+  }
+}
+.spirits-img-wrap{
+  max-width: 75%;
+  overflow: hidden;
+  height: 0;
+  padding-top: 60%;
+  position: relative;
+  margin-right: auto;
+  & img{
+    position: absolute;
+    top: 0;
+    width: 100%;    
+  }
+}
+.spirits-photo{
+  position: relative;
+  height: 0;
+  padding-top: 48%;
+  
+  & img{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    &:nth-child(2){
+      z-index: 2;
+    }
+    &:nth-child(3){
+      z-index: 3;
+      top: 0;
+      bottom: auto;      
+    }
+  }
+}
+.history-section{
+  color: #fff;
+  background-color: @primary-color-dark;
 }

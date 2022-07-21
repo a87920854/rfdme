@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import { Row, Col, BackTop, Breadcrumb, Input, Form, Button } from 'antd';
@@ -56,7 +57,7 @@ export default function Contact() {
                 <div className='container'>
                     <Breadcrumb>
                         <Breadcrumb.Item>
-                            <a href="/">Home</a>
+                            <Link to="/">Home</Link>
                         </Breadcrumb.Item>
                         <Breadcrumb.Item>
                             Contact Us

@@ -10,7 +10,6 @@ export default function Header(props) {
     const headerItem = useRef();    
     const [dropclass,setDropclass]=useState("");
     const [scroll,setScroll]=useState("");
-    // const [padding,setPadding]=useState("");
     const [menuVisible, setMenuVisible] = useState(false);
     const headerClassName = classNames({
         clearfix: true,
@@ -20,59 +19,70 @@ export default function Header(props) {
         {
             id:"公司介紹",
             title:"公司介紹",
-            url:"/about"
+            url:"/about",
+            hash:"",
         },
         {
             id:"願景宗旨",
             title:"願景宗旨",
-            url:"/"
+            url:"/about",
+            hash:"view",
         },
         {
             id:"營運團隊",
             title:"營運團隊",
-            url:"/"
+            url:"/about",
+            hash:"team",
         },
         {
             id:"Spirits/Motivation",
             title:"Spirits/Motivation",
-            url:"/"
+            url:"/about",
+            hash:"spirits",
         },
         {
             id:"微電大事紀",
             title:"微電大事紀",
-            url:"/"
+            url:"/about",
+            hash:"history",
         },
     ]
     const menuDropItem_service = [
         {
             id:"太陽能電廠整合方案",
             title:"太陽能電廠整合方案",
-            url:"/"
+            url:"/service",
+            hash:"solar",
         },
         {
             id:"綠能應用解決方案",
             title:"綠能應用解決方案",
-            url:"/"
+            url:"/service",
+            hash:"green",
         },
         {
             id:"瓦力電能：綠能採購",
             title:"瓦力電能：綠能採購",
-            url:"/"
+            url:"/service",
+            hash:"wali01",
         },
         {
             id:"瓦力電能：綠電銷售代理",
             title:"瓦力電能：綠電銷售代理",
-            url:"/"
+            url:"/service",
+            hash:"wali02",
         },
         {
             id:"Light Donate",
             title:"Light Donate",
-            url:"/"
+            url:"/service",
+            hash:"lightdonate",
         },
         {
             id:"電廠銷售服務",
             title:"電廠銷售服務",
-            url:"/"
+            url:"/service",
+            hash:"evsale",
         },
     ]
     const dropItemSet = (isview) => {
@@ -95,7 +105,6 @@ export default function Header(props) {
         
     })
     const phoneClick = () => {
-        // const phoneOpen = !this.state.phoneOpen;
         setMenuVisible(!menuVisible);
     };
 
@@ -110,15 +119,15 @@ export default function Header(props) {
                 <Dropdown view={dropItemSet} content={menuDropItem_about} title={"關於我們"}/>
             </li>
             <li>
-                <NavLink to="/">
+                <NavLink to="/news">
                     最新消息
                 </NavLink>
             </li>
             <li>
-            <Dropdown view={dropItemSet} content={menuDropItem_service} title={"服務內容"}/>
+                <Dropdown view={dropItemSet} content={menuDropItem_service} title={"服務內容"}/>
             </li>
             <li>
-                <NavLink to="/">
+                <NavLink to="/project">
                     電廠實績
                 </NavLink>
             </li>

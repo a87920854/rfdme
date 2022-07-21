@@ -9,10 +9,22 @@ export default function Dropdown(props) {
         view("open");
     }
     const dropdownblur = (e) => {
-        setDropclass("");
+        setTimeout(()=>{
+            setDropclass("");
+            view("");
+        },200)
+        
     }
     const view = ( arg ) =>{
         props.view(arg);
+    }
+    const toHashHandler = (url) =>{
+        if(url !== "/about" && url !== ""){            
+            setTimeout(()=>{
+                let anchorElement = document.getElementById(url);
+                anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'});
+            },2000);            
+        }
     }
     return (
         <>
@@ -21,7 +33,7 @@ export default function Dropdown(props) {
             </a>
             <ul className={`header-dropmenu ${dropclass}`} ref={dropMenuItem}>
                 {props.content.map((item)=> (
-                    <li key={item.id}><Link className='nav-link' to={item.url}>{item.title}</Link></li>
+                    <li key={item.id}><Link className='nav-link' to={item.url} onClick={()=> toHashHandler(item.hash)}>{item.title}</Link></li>
                 ))}              
                 <div className='header-dropmenu-bg'></div>
             </ul>

@@ -34,9 +34,9 @@ export default function Contact() {
             {        
               y: 80,
               scrollTrigger: {
-                trigger: element.querySelector(".page-kv"),
+                trigger: element.querySelector(".page-title"),
                 start: "top top",
-              
+                end: "bottom top",
                 scrub: true,
               }
             }
@@ -55,6 +55,37 @@ export default function Contact() {
               }
             }
         );
+        gsap.fromTo(
+            element.querySelector(".mountain02"),
+            {        
+              y: 0
+            },
+            {        
+              y: 240,
+              scrollTrigger: {
+                trigger: element.querySelector(".spirits-section"),
+                start: "top top", 
+                end: "bottom top",               
+                scrub: true,
+              }
+            }
+        );
+        gsap.fromTo(
+            element.querySelector(".clouds"),
+            {        
+              y: 0
+            },
+            {        
+              y: 120,
+              scrollTrigger: {
+                trigger: element.querySelector(".spirits-section"),
+                start: "top top",
+                end: "bottom top",            
+                scrub: true,
+              }
+            }
+        );
+
     })
     return (
         <div ref={scrollref}>
@@ -212,9 +243,9 @@ export default function Contact() {
                 <h2>Spirits/<br/>Motivation</h2>
                 <p>勇敢、大膽、聰明、開創、務實、溫暖、關懷</p>
                 <div className="spirits-photo">                    
-                    <img src={spirits_mountain02} alt={spirits_mountain02} />
-                    <img src={spirits_mountain01} alt={spirits_mountain01} />
-                    <img src={spirits_clouds} alt={spirits_clouds} />
+                    <img className='mountain02' src={spirits_mountain02} alt={spirits_mountain02} />
+                    <img className='clouds' src={spirits_clouds} alt={spirits_clouds} />
+                    <img className='mountain01' src={spirits_mountain01} alt={spirits_mountain01} />                    
                 </div>
             </section>
             <section className='page-about-section history-section' id="history">

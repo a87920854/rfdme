@@ -1132,6 +1132,7 @@ section{
 .spirits-section{
   position: relative;
   padding-bottom: 0;
+  overflow: hidden;
   & h2{
     text-align: center;
   }
@@ -1170,14 +1171,14 @@ section{
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: 0;
+    bottom: 0;    
     &:nth-child(2){
       z-index: 2;
-    }
-    &:nth-child(3){
-      z-index: 3;
       top: 0;
       bottom: auto;      
+    }
+    &:nth-child(3){
+      z-index: 9;
     }
   }
 }

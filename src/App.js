@@ -1,6 +1,7 @@
 import React , { useState} from 'react';
 import Home from "./pages/Home";
 import About from "./pages/About";
+import News from "./pages/News";
 import Contact from "./pages/Contact";
 import { Routes, Route , useLocation } from "react-router-dom";
 import { CSSTransition,  TransitionGroup } from "react-transition-group";
@@ -25,6 +26,7 @@ function App() {
           }}
         >       
           <Routes location={location}>
+              <Route path="/news" element={<News />} />  
               <Route path="/about" element={<About />} />  
               <Route path="/contact" element={<Contact />} />  
               <Route path="/" element={<Home />} /> 

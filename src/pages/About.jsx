@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link as Alink } from 'react-router-dom';
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import { Row, Col, BackTop, Breadcrumb, Anchor } from 'antd';
+import { Row, Col, BackTop, Breadcrumb } from 'antd';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import about_kv from "../images/about_kv.jpg";
@@ -12,11 +12,6 @@ import spirits_mountain01 from "../images/mountain01.png";
 import spirits_mountain02 from "../images/mountain02.png";
 import spirits_clouds from "../images/clouds.png";
 
-const { Link } = Anchor;
-const handleClick = (e, link) => {
-    e.preventDefault();
-    console.log(link);
-  };
 export default function Contact() {    
     const toLink = (url) =>{
         let anchorElement = document.getElementById(url);
@@ -55,58 +50,44 @@ export default function Contact() {
               }
             }
         );
-        gsap.fromTo(
-            element.querySelector(".mountain02"),
-            {        
-              y: 0
-            },
-            {        
-              y: 240,
-              scrollTrigger: {
-                trigger: element.querySelector(".spirits-section"),
-                start: "top top", 
-                end: "bottom top",               
-                scrub: true,
-              }
-            }
-        );
-        gsap.fromTo(
-            element.querySelector(".clouds"),
-            {        
-              y: 0
-            },
-            {        
-              y: 120,
-              scrollTrigger: {
-                trigger: element.querySelector(".spirits-section"),
-                start: "top top",
-                end: "bottom top",            
-                scrub: true,
-              }
-            }
-        );
+        setTimeout(()=>{
+            gsap.to(element.querySelector(".mountain02"), {
+                scrollTrigger: {
+                  trigger: element.querySelector(".spirits-section"),
+                  start: "top top",               
+                  scrub: true,
+                }, 
+                y: 200,
+            });
+            gsap.to(element.querySelector(".clouds"), {
+                scrollTrigger: {
+                  trigger: element.querySelector(".spirits-section"),
+                  start: "top top",               
+                  scrub: true,
+                }, 
+                y: 100,
+            });
+        },200);
 
     })
     return (
         <div ref={scrollref}>
             <Header/>
             <div className='page-title'>
-                <h1>About Us</h1>
-                <Anchor affix={false} onClick={handleClick}>
-                    <ul className='page-title-link'>
-                        <li><Link href='#company' title="公司介紹" /></li>
-                        <li><Link href='#view' title="願景宗旨" /></li>
-                        <li><Link href='#team' title="營運團隊" /></li>
-                        <li><Link href='#spirits' title="Spirits/Motivation" /></li>
-                        <li><Link href='#history' title="微電大事紀" /></li>
-                    </ul>
-                </Anchor>
+                <h1>About Us</h1>                
+                <ul className='page-title-link'>
+                    <li><a href='/' onClick={(e)=> {e.preventDefault(); toLink("company")}} >公司介紹</a></li>
+                    <li><a href='/' onClick={(e)=> {e.preventDefault(); toLink("view")}} >願景宗旨</a></li>
+                    <li><a href='/' onClick={(e)=> {e.preventDefault(); toLink("team")}} >營運團隊</a></li>
+                    <li><a href='/' onClick={(e)=> {e.preventDefault(); toLink("spirits")}} >Spirits/Motivation</a></li>
+                    <li><a href='/' onClick={(e)=> {e.preventDefault(); toLink("history")}} >微電大事紀</a></li>
+                </ul>                
             </div>           
             <div className='page-kv'>
                 <div className='page-kv-img-wrap'>
                     <img src={about_kv} alt={about_kv} className='page-kv-img'/>
                 </div>                
-                <a className={`btn-more`} href='/#' onClick={(e)=> {e.preventDefault();toLink("company");}}>
+                {/* <a className={`btn-more`} href='/#' onClick={(e)=> {e.preventDefault();toLink("company");}}>
                     <div className='btn-more-wrap'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
                             <circle r="38" cx="40" cy="40" strokeWidth="2" fill="none"></circle>
@@ -115,7 +96,7 @@ export default function Contact() {
                         <i className='arrow-right'></i>
                     </div>        
                     <p className='bottom'>Find out more</p>
-                </a>
+                </a> */}
             </div>
             <div className='breadcrumb'>
                 <div className='container'>
@@ -144,7 +125,7 @@ export default function Contact() {
             <section className='page-about-section view-section' id="view">
                 <div className='container'>
                     <Row align="middle">
-                        <Col lg={6} md={6} sm={12} xs={24}>
+                        <Col lg={6} md={6} sm={24} xs={24}>
                             <div className=''>
                                 <h2>Mission<br/>Vision</h2>
                                 <p>我們衷心相信「太陽能即服務」 (Solar as a service) ！</p>
@@ -152,7 +133,7 @@ export default function Contact() {
                                 <p>微電並願成為發動社會共好的綠色引擎，串接能源、公益、文化、消費、金融等各個領域，把綠色能源的價值散播到社會每個角落。</p>
                             </div>
                         </Col>
-                        <Col lg={18} md={18} sm={12} xs={24}>
+                        <Col lg={18} md={18} sm={24} xs={24}>
                             <div className='view-img-wrap'>
                                 <img className='view-img' src={view_img} alt={view_img}/>
                             </div>
@@ -239,7 +220,7 @@ export default function Contact() {
                     </Row>
                 </div>
             </section>
-            <section className='page-about-section spirits-section' id="spirits">
+            <section className='spirits-section page-about-section' id="spirits">
                 <h2>Spirits/<br/>Motivation</h2>
                 <p>勇敢、大膽、聰明、開創、務實、溫暖、關懷</p>
                 <div className="spirits-photo">                    
@@ -250,7 +231,105 @@ export default function Contact() {
             </section>
             <section className='page-about-section history-section' id="history">
                 <div className="container">
-
+                    <h2>Milestones Stories</h2>
+                    <div className='history-all'>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2015</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        微電能源創立
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2016</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        福華集團投資
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2017</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        與私募基金合作 投資金額2800萬元<br/>
+                                        完成太陽能監控數據分析模式開發，1MWp電廠試營運
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2018</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        完成監控數據金融區塊鏈對接POC；太陽能資產管理平台「SOLA」完成上線<br/>
+                                        國發天使基金通過投資 太陽能電廠投資總金額突破2億元<br/>
+                                        工業局補助智慧城鄉專案
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2019</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        與國泰世華銀行簽署信託架構合約<br/>
+                                        開始進行太陽能 私募股權基金計畫 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2020</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        行政院國發基金增資微電能源<br/>
+                                        聯邦銀行、活水影響力創投投資微電能源
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2021</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        屏東天璣案場掛錶 成為屏東最大民營發電商<br/>
+                                        國統一國際開發、研華科技、璞石晶華、華陽創投集團投資微電能源
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='history-box'>
+                            <div className='history-box-item'>
+                                <div className='year'>2022</div>
+                                <div className="line"><span></span></div>
+                                <div className='description'>
+                                    <p>
+                                        台南廷捷漁電共生160MW聯貸案通過，預計2023完工<br/>
+                                        公開發行 籌備上市計畫
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+   
                 </div>
             </section>
             <BackTop />

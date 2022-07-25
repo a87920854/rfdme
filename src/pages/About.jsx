@@ -12,7 +12,7 @@ import spirits_mountain01 from "../images/mountain01.png";
 import spirits_mountain02 from "../images/mountain02.png";
 import spirits_clouds from "../images/clouds.png";
 
-export default function Contact() {    
+export default function About() {    
     const toLink = (url) =>{
         let anchorElement = document.getElementById(url);
         anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'});
@@ -123,6 +123,7 @@ export default function Contact() {
                 </div>
             </section>
             <section className='page-about-section view-section' id="view">
+                <div className='section-top-line'></div>
                 <div className='container'>
                     <Row align="middle">
                         <Col lg={6} md={6} sm={24} xs={24}>
@@ -142,6 +143,7 @@ export default function Contact() {
                 </div>
             </section>
             <section className='page-about-section team-section' id="team">
+                <div className='section-top-line'></div>
                 <div className='container'>
                     <h2>Team</h2>
                     <Row gutter={[32, 32]}>
@@ -221,6 +223,7 @@ export default function Contact() {
                 </div>
             </section>
             <section className='spirits-section page-about-section' id="spirits">
+                <div className='section-top-line'></div>
                 <h2>Spirits/<br/>Motivation</h2>
                 <p>勇敢、大膽、聰明、開創、務實、溫暖、關懷</p>
                 <div className="spirits-photo">                    

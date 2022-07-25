@@ -2,7 +2,10 @@ import React , { useState} from 'react';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import News from "./pages/News";
+import NewsPage from "./pages/News_Page";
+import Service from "./pages/Service";
 import Contact from "./pages/Contact";
+
 import { Routes, Route , useLocation } from "react-router-dom";
 import { CSSTransition,  TransitionGroup } from "react-transition-group";
 import "./App.less";
@@ -26,9 +29,11 @@ function App() {
           }}
         >       
           <Routes location={location}>
-              <Route path="/news" element={<News />} />  
+              <Route path="/news" element={<News />} />
+              <Route path="/news/:id" element={<NewsPage />} />
               <Route path="/about" element={<About />} />  
-              <Route path="/contact" element={<Contact />} />  
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/service" element={<Service />} />  
               <Route path="/" element={<Home />} /> 
           </Routes>      
         </CSSTransition>

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link as Alink } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Header from "../component/Header";
 import Footer from "../component/Footer";
 import { Row, Col, BackTop, Breadcrumb, Pagination } from 'antd';
 
-export default function Contact() {    
+export default function News() {    
 
     return (
         <div>
@@ -17,7 +16,7 @@ export default function Contact() {
                 <div className='container'>
                     <Breadcrumb>
                         <Breadcrumb.Item>
-                            <Alink to="/">Home</Alink>
+                            <Link to="/">Home</Link>
                         </Breadcrumb.Item>
                         <Breadcrumb.Item>
                             News
@@ -31,7 +30,7 @@ export default function Contact() {
                         <Row>
                             <Col lg={{span:16,offset:4}} md={{span:16,offset:4}} sm={24} xs={24}>
                                 <div className='page-news-list'>
-                                    <Link className='news-item' to="/">
+                                    <Link className='news-item' to="/news/test">
                                         <div className='news-item-date'>
                                             <div className='news-item-date-day'>24</div>
                                             <div className='news-item-date-month'>2022.07</div>
@@ -95,7 +94,6 @@ export default function Contact() {
                     
                 </div>
             </section>
-
             <BackTop />
             <Footer/>
         </div>

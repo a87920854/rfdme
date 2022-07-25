@@ -52,7 +52,7 @@ export default function Header(props) {
             id:"太陽能電廠整合方案",
             title:"太陽能電廠整合方案",
             url:"/service",
-            hash:"solar",
+            hash:"",
         },
         {
             id:"綠能應用解決方案",

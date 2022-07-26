@@ -49,13 +49,24 @@ export default function Service() {
                     </Breadcrumb>
                 </div>   
             </div>
-            <section className='page-about-section' id="company">
+            <section className='page-service-section' id="solar">
                 <div className='container'>
                     <Row>
+                        <Col lg={6} md={6} sm={24} xs={24}>
+                            <div className=''>
+                                <h2>太陽能電廠整合方案</h2>
+                            </div>
+                        </Col>
                         <Col lg={{span:12,offset:6}} md={{span:12,offset:6}} sm={24} xs={24}>
-                            <div className='company-section-txt'>
-                                <p>微電能源以「創新永續未來Renewable Future Development」為方向，整合跨界團隊，以太陽能電廠開發、能源數據的蒐集、分析、整合、應用為核心能力，發展太陽能電廠整合規劃建置與營運，以及串連能源到投資的整合價值鏈服務； 提供企業到社會在綠能策略、綠能投資、ESG策略，到技術合作創新的跨界整合方案。成立來迅速擴張，具備堅實的營運與獲利基礎，並吸引國內外跨產業領導者的規模性投資。</p>
-                                <p>我們相信，太陽能不僅是綠能與永續的基礎，更是未來企業與社會創新與發展的核心驅動力。</p>
+                            <div className=''>
+                                <h3>電廠開發建置維運</h3>
+                                <p>微電能源具備太陽能電廠的全程服務與營運承諾，從評估模擬、開發申設，建置統籌、電廠投資，到監控營運、報酬管理等，均建立專業團隊統籌執行。依據土地場域的特性，綜合容量、技術、維運與長期管理等因素整體規劃管理，確保參與者與投資者的成果與權益。<br/>同時，微電自行開發專屬監控系統，藉由工業數據分析建構演算法與量化模型，整合資訊回報、可追溯性、可預測性、檢修維護技術，以及智慧資料庫等，提升太陽能電廠的運作率。持續的資料累積與分析，優化電廠營運品質與電能價值。</p>
+                                <ul className='service-hash-ul'>
+                                    <li>#EPC</li>
+                                    <li>#全流程電廠服務</li>
+                                    <li>#數據監控</li>
+                                    <li>#能源數據</li>
+                                </ul>
                             </div>
                         </Col>
                     </Row>

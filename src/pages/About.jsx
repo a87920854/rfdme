@@ -222,8 +222,7 @@ export default function About() {
                     </Row>
                 </div>
             </section>
-            <section className='spirits-section page-about-section' id="spirits">
-                <div className='section-top-line'></div>
+            <section className='spirits-section page-about-section' id="spirits">                
                 <h2>Spirits/<br/>Motivation</h2>
                 <p>勇敢、大膽、聰明、開創、務實、溫暖、關懷</p>
                 <div className="spirits-photo">                    

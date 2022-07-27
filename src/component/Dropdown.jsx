@@ -22,7 +22,9 @@ export default function Dropdown(props) {
         if(url !== "/about" && url !== ""){            
             setTimeout(()=>{
                 let anchorElement = document.getElementById(url);
-                anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'});
+                if(anchorElement){
+                   anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'});  
+                }                
             },2000);            
         }
     }

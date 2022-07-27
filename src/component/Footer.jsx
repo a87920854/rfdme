@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import {Row, Col} from 'antd';
+import {Row, Col, Modal, Button } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import { Divider } from 'antd';
 import logo from "../images/logo_white.svg";
 import icon_arrow from "../images/icon-arrow.svg";
 
 export default function Footer(props){
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
     return (
         <footer className="footer">
             <div className="container">
@@ -38,7 +52,32 @@ export default function Footer(props){
                             <Col lg={8} md={8} sm={8} xs={24}>
                                 <h6><Link to="/news">最新消息</Link></h6>
                                 <h6><Link to="/project">電廠實績</Link></h6>
-                                <h6><Link to="/contact">聯絡我們</Link></h6>
+                                <h6><a href='/#' onClick={(e)=>{ e.preventDefault();showModal()}}>電業訊息</a></h6>
+                                <Modal title="電業訊息" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                                    <dl className='modal-list'>
+                                        <dt>111年</dt>
+                                        <dd>
+                                            <Button type="link" shape="round" icon={<DownloadOutlined />} size='small'>
+                                                111年1月電業月報.pdf
+                                            </Button>
+                                        </dd>
+                                        <dd>
+                                            <Button type="link" shape="round" icon={<DownloadOutlined />} size='small'>
+                                                111年1月電業月報.pdf
+                                            </Button>
+                                        </dd>  
+                                        <dd>
+                                            <Button type="link" shape="round" icon={<DownloadOutlined />} size='small'>
+                                                111年1月電業月報.pdf
+                                            </Button>
+                                        </dd>  
+                                        <dd>
+                                            <Button type="link" shape="round" icon={<DownloadOutlined />} size='small'>
+                                                111年1月電業月報.pdf
+                                            </Button>
+                                        </dd>                   
+                                    </dl>
+                                </Modal>
                             </Col>
                         </Row> 
                     </Col>

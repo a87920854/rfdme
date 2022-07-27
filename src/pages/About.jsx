@@ -7,10 +7,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import about_kv from "../images/about_kv.jpg";
 import view_img from "../images/view_img.jpg";
-import avatar from "../images/avatar.jpg";
 import spirits_mountain01 from "../images/mountain01.png";
 import spirits_mountain02 from "../images/mountain02.png";
 import spirits_clouds from "../images/clouds.png";
+import avatar_chairman from "../images/avatar_chairman.jpg";
+import avatar_coo from "../images/avatar_coo.jpg";
+import avatar_cbo from "../images/avatar_cbo.jpg";
+import avatar_cfo from "../images/avatar_cfo.jpg";
+import avatar_cto from "../images/avatar_cto.jpg";
 
 export default function About() {    
     const toLink = (url) =>{
@@ -19,6 +23,7 @@ export default function About() {
     }
     const scrollref = useRef(null);
     useEffect(()=>{        
+        setTimeout(()=>{
         gsap.registerPlugin(ScrollTrigger);
         const element = scrollref.current;
         gsap.fromTo(
@@ -50,23 +55,23 @@ export default function About() {
               }
             }
         );
-        setTimeout(()=>{
-            gsap.to(element.querySelector(".mountain02"), {
-                scrollTrigger: {
-                  trigger: element.querySelector(".spirits-section"),
-                  start: "top top",               
-                  scrub: true,
-                }, 
-                y: 200,
-            });
-            gsap.to(element.querySelector(".clouds"), {
-                scrollTrigger: {
-                  trigger: element.querySelector(".spirits-section"),
-                  start: "top top",               
-                  scrub: true,
-                }, 
-                y: 100,
-            });
+        
+        gsap.to(element.querySelector(".mountain02"), {
+            scrollTrigger: {
+                trigger: element.querySelector(".spirits-section"),
+                start: "top top",               
+                scrub: true,
+            }, 
+            y: 200,
+        });
+        gsap.to(element.querySelector(".clouds"), {
+            scrollTrigger: {
+                trigger: element.querySelector(".spirits-section"),
+                start: "top top",               
+                scrub: true,
+            }, 
+            y: 100,
+        });
         },200);
 
     })
@@ -150,7 +155,7 @@ export default function About() {
                         <Col lg={{span:6,offset:6}} md={{span:6,offset:6}} sm={24} xs={24}>
                             <div className='team-box'>
                                 <div className='team-box-photo'>
-                                    <img src={avatar} alt="王愍廸" />
+                                    <img src={avatar_chairman} alt="王愍廸" />
                                 </div>
                                 <div className='team-box-txt'>
                                     <div className='team-box-txt-title'>創辦人/董事長</div>
@@ -164,7 +169,7 @@ export default function About() {
                         <Col lg={6} md={6} sm={24} xs={24}>
                             <div className='team-box'>
                                 <div className='team-box-photo'>
-                                    <img src={avatar} alt="武俊祺" />
+                                    <img src={avatar_coo} alt="武俊祺" />
                                 </div>
                                 <div className='team-box-txt'>
                                     <div className='team-box-txt-title'>共同創辦人/營運長</div>
@@ -180,7 +185,7 @@ export default function About() {
                         <Col lg={{span:6,offset:3}} md={{span:6,offset:3}} sm={24} xs={24}>
                             <div className='team-box'>
                                 <div className='team-box-photo'>
-                                    <img src={avatar} alt="陳心希" />
+                                    <img src={avatar_cfo} alt="陳心希" />
                                 </div>
                                 <div className='team-box-txt'>
                                     <div className='team-box-txt-title'>財務長/發言人</div>
@@ -194,7 +199,7 @@ export default function About() {
                         <Col lg={6} md={6} sm={24} xs={24}>
                             <div className='team-box'>
                                 <div className='team-box-photo'>
-                                    <img src={avatar} alt="沈時華" />
+                                    <img src={avatar_cbo} alt="沈時華" />
                                 </div>
                                 <div className='team-box-txt'>
                                     <div className='team-box-txt-title'>業務長</div>
@@ -208,7 +213,7 @@ export default function About() {
                         <Col lg={6} md={6} sm={24} xs={24}>
                             <div className='team-box'>
                                 <div className='team-box-photo'>
-                                    <img src={avatar} alt="姜智昂" />
+                                    <img src={avatar_cto} alt="姜智昂" />
                                 </div>
                                 <div className='team-box-txt'>
                                     <div className='team-box-txt-title'>技術長</div>
